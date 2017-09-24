@@ -57,6 +57,9 @@ public class Parser{
 		//if the first character is a letter.
 		if((ch > 64 & ch < 91) | (ch > 96 & ch < 123)){
 			//TODO
+			tk.type=Token.FUNC;
+			tk.str=s.substring(0,s.length()-2);//remove the left bracket.
+			return tk;
 		}
 		try{
 			//Integer

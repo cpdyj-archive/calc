@@ -11,6 +11,6 @@ public class Token{
 	public int type;
 	public int i;
 	public double d;
-	public String fn;
+	public String str;
 
 }
