@@ -18,7 +18,7 @@ public class Parser{
 		source = src.trim();
 	}
 	public ArrayList<Token> getTokens(String src){
-		Pattern token_pattern=Pattern.compile("\\d+(\\.\\d+)?|\\+|\\-|\\*|\\/|\\(|\\)|[A-z]+ *\\(|,\n");
+		Pattern token_pattern=Pattern.compile("\\d+(\\.\\d+)?|\\+|\\-|\\*|\\/|\\(|\\)|[A-z]+ *\\(|,");
 		Matcher matcher=token_pattern.matcher(src);
 		ArrayList<Token> tks=new ArrayList<Token>();
 		//use regex split the string.
