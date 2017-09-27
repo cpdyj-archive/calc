@@ -13,14 +13,10 @@ import java.util.regex.*;
  */
 public class TokenParser
 {
-	String source;
-	public TokenParser(String src){
-		if(src == null){
-			throw new NullPointerException("source string is null!");
+	public static ArrayList<Token> getTokens(String src){
+		if(src==null){
+			throw new NullPointerException();
 		}
-		source = src.trim();
-	}
-	public ArrayList<Token> getTokens(String src){
 		Pattern token_pattern=Pattern.compile("\\d+(\\.\\d+)?|\\+|\\-|\\*|\\/|\\(|\\)|[A-z]\\(|,");
 		Matcher matcher=token_pattern.matcher(src);
 		ArrayList<Token> tks=new ArrayList<Token>();
@@ -31,7 +27,7 @@ public class TokenParser
 		}
 		return tks;
 	}
-	private Token getTk(String s){
+	private static Token getTk(String s){
 		Token tk=new Token();
 		int ch=s.charAt(0);
 		//if parser ok, return immediately.
