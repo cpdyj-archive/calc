@@ -63,7 +63,7 @@ public class TokenParser
 		try{
 			//Integer
 			//if not find '.'
-			if(s.indexOf('.') != -1){
+			if(s.indexOf('.') == -1){
 				tk.i = Integer.parseInt(s);
 				tk.type = Token.INTEGER;
 			}else{
