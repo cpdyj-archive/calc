@@ -9,6 +9,6 @@ public class Main
 		Scanner input = new Scanner(System.in);
 		
 		Parser p=new Parser();
-		p.compile("3+5*2");
+		p.compile("(3+5)*2");
 	}
 }

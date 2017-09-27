@@ -62,6 +62,6 @@ public class Parser{
 		return nums;
 	}
 	private boolean mp(Token s,Token o){
-		return pri.get(s.type)<=pri.get(o.type)?true:false;
+		return pri.get(s.type)<=pri.get(o.type);
 	}
 }
