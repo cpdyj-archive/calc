@@ -11,16 +11,16 @@ public class Parser{
 	}
 	private HashMap<Integer,Integer> pri=new HashMap<Integer,Integer>();
 	public Parser(){
-		pri.put(Token.MUL,3);
-		pri.put(Token.DIV,3);
-		pri.put(Token.ADD,2);
-		pri.put(Token.SUB,2);
-		pri.put(Token.SPL,1);
-		pri.put(Token.INTEGER,0);
-		pri.put(Token.DOUBLE,0);
-		pri.put(Token.LBK,0);
-		pri.put(Token.FUNC,0);
-		
+		pri.put(Token.MUL, 3);
+		pri.put(Token.DIV, 3);
+		pri.put(Token.ADD, 2);
+		pri.put(Token.SUB, 2);
+		pri.put(Token.SPL, 1);
+		pri.put(Token.INTEGER, 0);
+		pri.put(Token.DOUBLE, 0);
+		pri.put(Token.LBK, 0);
+		pri.put(Token.FUNC, 0);
+
 	}
 	private Stack<Token> parseToRPN(ArrayList<Token> tokenlist){
 		Stack<Token> ops=new Stack<Token>();
@@ -52,7 +52,7 @@ public class Parser{
 				case Token.ADD:
 				case Token.SUB:
 				case Token.SPL:
-					while(!(ops.isEmpty())&&getpri(tk)<getpri(ops.peek())){
+					while(!(ops.isEmpty()) && getpri(tk) < getpri(ops.peek())){
 						nums.push(ops.pop());
 					}
 					ops.push(tk);
