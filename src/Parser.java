@@ -11,10 +11,11 @@ public class Parser{
 	}
 	private HashMap<Integer,Integer> pri=new HashMap<Integer,Integer>();
 	public Parser(){
-		pri.put(Token.MUL,2);
-		pri.put(Token.DIV,2);
-		pri.put(Token.ADD,1);
-		pri.put(Token.SUB,1);
+		pri.put(Token.MUL,3);
+		pri.put(Token.DIV,3);
+		pri.put(Token.ADD,2);
+		pri.put(Token.SUB,2);
+		pri.put(Token.SPL,1);
 		pri.put(Token.INTEGER,0);
 		pri.put(Token.DOUBLE,0);
 		pri.put(Token.LBK,0);
@@ -32,8 +33,6 @@ public class Parser{
 					break;
 				case Token.LBK:
 				case Token.FUNC:
-				case Token.MUL:
-				case Token.DIV:
 					ops.push(tk);
 					break;
 				case Token.RBK:
@@ -48,9 +47,12 @@ public class Parser{
 						nums.push(temp);
 					}
 					break;
+				case Token.MUL:
+				case Token.DIV:
 				case Token.ADD:
 				case Token.SUB:
-					if((!ops.isEmpty())&&mp(tk,ops.peek())){
+				case Token.SPL:
+					while(!(ops.isEmpty())&&getpri(tk)<getpri(ops.peek())){
 						nums.push(ops.pop());
 					}
 					ops.push(tk);
@@ -61,7 +63,7 @@ public class Parser{
 		}
 		return nums;
 	}
-	private boolean mp(Token s,Token o){
-		return pri.get(s.type)<=pri.get(o.type);
+	private int getpri(Token tk){
+		return pri.get(tk.type);
 	}
 }

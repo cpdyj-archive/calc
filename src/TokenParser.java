@@ -17,7 +17,7 @@ public class TokenParser
 		if(src==null){
 			throw new NullPointerException();
 		}
-		Pattern token_pattern=Pattern.compile("\\d+(\\.\\d+)?|\\+|\\-|\\*|\\/|\\(|\\)|[A-z]+\\(");
+		Pattern token_pattern=Pattern.compile("\\d+(\\.\\d+)?|\\+|\\-|\\*|\\/|\\(|\\)|[A-z]+\\(|,");
 		Matcher matcher=token_pattern.matcher(src);
 		ArrayList<Token> tks=new ArrayList<Token>();
 		//use regex split the string.
@@ -50,6 +50,9 @@ public class TokenParser
 				return tk;
 			case ')':
 				tk.type = Token.RBK;
+				return tk;
+			case ',':
+				tk.type=Token.SPL;
 				return tk;
 		}
 		//Function
