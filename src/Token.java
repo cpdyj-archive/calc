@@ -14,5 +14,4 @@ public class Token{
 	public int i;
 	public double d;
 	public String str;
-
 }
