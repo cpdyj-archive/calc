@@ -14,10 +14,10 @@ import java.util.regex.*;
 public class TokenParser
 {
 	public static ArrayList<Token> getTokens(String src){
-		if(src==null){
+		if(src == null){
 			throw new NullPointerException();
 		}
-		Pattern token_pattern=Pattern.compile("\\d+(\\.\\d+)?|\\+|\\-|\\*|\\/|\\(|\\)|[A-z]+\\(|,");
+		Pattern token_pattern=Pattern.compile("\\d+(\\.\\d+)?|\\+|\\-|\\*|\\/|\\(|\\)|[A-z0-9]+\\(|,|\\$[A-z0-9]+");
 		Matcher matcher=token_pattern.matcher(src);
 		ArrayList<Token> tks=new ArrayList<Token>();
 		//use regex split the string.
@@ -52,15 +52,19 @@ public class TokenParser
 				tk.type = Token.RBK;
 				return tk;
 			case ',':
-				tk.type=Token.SPL;
+				tk.type = Token.SPL;
+				return tk;
+			case '$':
+				tk.type = Token.VAR;
+				tk.str = s.substring(1, s.length());
 				return tk;
 		}
 		//Function
 		//if the first character is a letter.
 		if((ch > 64 & ch < 91) | (ch > 96 & ch < 123)){
 			//TODO
-			tk.type=Token.FUNC;
-			tk.str=s.substring(0,s.length()-1);//remove the left bracket.
+			tk.type = Token.FUNC;
+			tk.str = s.substring(0, s.length() - 1);//remove the left bracket.
 			return tk;
 		}
 		try{

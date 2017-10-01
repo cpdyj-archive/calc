@@ -9,6 +9,7 @@ public class Token{
 	public static final int LBK=8;
 	public static final int RBK=9;
 	public static final int SPL=10;
+	public static final int VAR=11;
 	public int type;
 	public int i;
 	public double d;
