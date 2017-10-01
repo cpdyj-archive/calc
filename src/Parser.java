@@ -18,9 +18,9 @@ public class Parser{
 		pri.put(Token.SPL, 1);
 		pri.put(Token.INTEGER, 0);
 		pri.put(Token.DOUBLE, 0);
+		pri.put(Token.VAR, 0);
 		pri.put(Token.LBK, 0);
 		pri.put(Token.FUNC, 0);
-
 	}
 	private Stack<Token> parseToRPN(ArrayList<Token> tokenlist){
 		Stack<Token> ops=new Stack<Token>();
@@ -29,6 +29,7 @@ public class Parser{
 			switch(tk.type){
 				case Token.INTEGER:
 				case Token.DOUBLE:
+				case Token.VAR:
 					nums.push(tk);
 					break;
 				case Token.LBK:
