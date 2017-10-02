@@ -1,6 +1,6 @@
 
 import java.util.*;
-public class FuncCallNode
+public class FuncCallNode extends TreeNode
 {
 	public int parameters_quantity;
 	public String func_name;

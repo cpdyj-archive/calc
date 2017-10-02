@@ -17,7 +17,8 @@ public class RPNParser
 	public Stack<Token> parseToRPN(ArrayList<Token> tokenlist){
 		Stack<Token> ops=new Stack<Token>();
 		Stack<Token> nums=new Stack<Token>();
-		for(Token tk:tokenlist){
+		for(int i=0;i<tokenlist.size();i++){
+			Token tk=tokenlist.get(i);
 			switch(tk.type){
 				case Token.INTEGER:
 				case Token.DOUBLE:
@@ -26,6 +27,10 @@ public class RPNParser
 					break;
 				case Token.LBK:
 				case Token.FUNC:
+					if(tokenlist.get(i+1).type==Token.RBK){
+						//the function has no parameter.
+						tk.func_has_no_param=true;
+					}
 					ops.push(tk);
 					break;
 				case Token.RBK:

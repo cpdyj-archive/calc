@@ -14,4 +14,5 @@ public class Token{
 	public int i;
 	public double d;
 	public String str;
+	public boolean func_has_no_param=false;
 }
