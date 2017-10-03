@@ -1,3 +1,4 @@
+package yiji.calc.nodes;
 public class NumberNode extends  TreeNode
 {
 	public static final int INTEGER=1;

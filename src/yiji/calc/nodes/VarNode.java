@@ -1,3 +1,4 @@
+package yiji.calc.nodes;
 public class VarNode extends TreeNode
 {
 	public String var_name;

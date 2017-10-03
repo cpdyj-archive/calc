@@ -1,3 +1,4 @@
+package yiji.calc;
 public class Token{
 	public static final int INTEGER=1;
 	public static final int DOUBLE=2;

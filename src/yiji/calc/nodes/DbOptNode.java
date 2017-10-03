@@ -1,3 +1,4 @@
+package yiji.calc.nodes;
 public class DbOptNode extends TreeNode
 {
 	public static final int ADD=3;
